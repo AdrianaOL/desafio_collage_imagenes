@@ -37,9 +37,9 @@ app.get('/deleteImg', (req, res) => {
 app.use('/public', express.static(__dirname + '/public'))
 app.use('/imgs', express.static(__dirname + '/imgs'))
 
-app.delete('/deleteImg/:nombre', (req, res) => {
+app.get('/deleteImg/:nombre', (req, res) => {
   const { nombre } = req.params
-  fs.unlink(`${__dirname}/imgs/${nombre}.jpg`, (err) => {
+  fs.unlink(`${__dirname}/imgs/${nombre}`, (err) => {
     res.send(`Imagen ${nombre} fue eliminada con éxito`)
   })
 })
